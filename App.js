@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -23,8 +23,14 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Splash from 'react-native-splash-screen';
 
-const App: () => React$Node = () => {
+const App = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      Splash.hide();
+    }, 500);
+  }, []);
   return (
     <>
       <StatusBar barStyle="dark-content" />
